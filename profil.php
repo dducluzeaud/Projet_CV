@@ -1,7 +1,15 @@
 <?php
 session_start();
 
-$bdd = new PDO('mysql:host=localhost:8888;dbname=espace_membre', 'root', 'root');
+try
+{
+  $bdd = new PDO('mysql:host=localhost;dbname=espace_membre;charset=utf8', 'root', 'root');
+}
+  catch(Exception $e)
+{
+        die('Erreur : '.$e->getMessage());
+}
+
 
 include_once('cookieconnect.php');
 
@@ -12,34 +20,29 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
 	$requser->execute(array($getid));
 	$userinfo = $requser->fetch();
 ?>
+
+
 <html>
 	<head>
-		<title>TUTO PHP</title>
+		<title>Profil</title>
 		<meta charset="utf-8">
 	</head>
 	<body>
 		<div align="center">
 			<h2>Profil de <?php echo $userinfo['pseudo']; ?></h2>
 			<br /><br />
-			<?php
-			if(isset($_SESSION['id']) AND $_SESSION['id'] != $getid) {
-				$isfollowingornot = $bdd->prepare('SELECT * FROM follow WHERE id_follower = ? AND id_following = ?');
-				$isfollowingornot->execute(array($_SESSION['id'],$getid));
-				$isfollowingornot = $isfollowingornot->rowCount();
-				if($isfollowingornot == 1) {
-			?>
 
 			Pseudo = <?php echo $userinfo['pseudo']; ?>
 			<br />
 			Mail = <?php echo $userinfo['mail']; ?>
 			<br />
-
 			<?php
 			if(isset($_SESSION['id']) AND $userinfo['id'] == $_SESSION['id'])
 			{
 			?>
 			<br />
 			<a href="editionprofil.php">Editer mon profil</a>
+      <a href="formulaireCV.php">Créer son CV</a>
 			<a href="deconnexion.php">Se déconnecter</a>
 			<?php
 			}
@@ -47,3 +50,6 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
 		</div>
 	</body>
 </html>
+<?php
+}
+?>
