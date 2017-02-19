@@ -10,19 +10,23 @@ try
 
 if(isset($_POST['forminscription']))
 {
-	$pseudo = htmlspecialchars($_POST['pseudo']);
+	$nom = htmlspecialchars($_POST['nom']);
+  $prenom = htmlspecialchars($_POST['prenom']);
 	$mail = htmlspecialchars($_POST['mail']);
 	$mail2 = htmlspecialchars($_POST['mail2']);
 	$mdp = sha1($_POST['mdp']);
 	$mdp2 = sha1($_POST['mdp2']);
 
-	if(!empty($_POST['pseudo']) AND !empty($_POST['mail']) AND !empty($_POST['mail2']) AND !empty($_POST['mdp']) AND !empty($_POST['mdp2']))
+	if(!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['mail']) AND !empty($_POST['mail2']) AND !empty($_POST['mdp']) AND !empty($_POST['mdp2']))
 	{
-		$pseudolength = strlen($pseudo);
-		if($pseudolength <= 50)
+		$nomlength = strlen($nom);
+		if($nom <= 50)
 		{
-			if($mail == $mail2)
-			{
+      $prenomlength = strlen($prenom);
+  		if($prenom <= 50)
+  		  {
+			       if($mail == $mail2)
+			          {
 				if(filter_var($mail, FILTER_VALIDATE_EMAIL))
 				{
 					$reqmail = $bdd->prepare("SELECT * FROM membres WHERE mail = ?");
@@ -33,10 +37,10 @@ if(isset($_POST['forminscription']))
 						if($mdp == $mdp2)
 						{
 
-							$insertmbr = $bdd->prepare("INSERT INTO membres(pseudo, mail, motdepasse) VALUES(?, ?, ?)");
-								$insertmbr->execute(array($pseudo, $mail, $mdp));
+							$insertmbr = $bdd->prepare("INSERT INTO membres(nom, prenom, mail, motdepasse) VALUES(?, ?, ?, ?)");
+								$insertmbr->execute(array($nom, $prenom, $mail, $mdp));
 
-							$erreur = "Votre compte a bien été créé ! <a href=\"connexion.php\">Me connecter</a>";
+							header('Location: profil.php?id='.$_SESSION['id']);
 						}
 						else
 						{
@@ -57,10 +61,15 @@ if(isset($_POST['forminscription']))
 			{
 				$erreur = "Vos adresses mail ne correspondent pas !";
 			}
-		}
-		else
+}
+    else
 		{
-			$erreur = "Votre pseudo ne doit pas dépasser 50 caractères !";
+			$erreur = "Votre prénom ne doit pas dépasser 50 caractères !";
+		}
+		}
+	else
+		{
+			$erreur = "Votre nom ne doit pas dépasser 50 caractères !";
 		}
 	}
 	else
@@ -83,10 +92,18 @@ if(isset($_POST['forminscription']))
 				<table>
 					<tr>
 						<td align="right">
-							<label for="pseudo">Pseudo :</label>
+							<label for="nom">Nom :</label>
 						</td>
 						<td>
-							<input type="text" placeholder="Votre pseudo" id="pseudo" name="pseudo" value="<?php if(isset($pseudo)) { echo $pseudo; } ?>" />
+							<input type="text" placeholder="Votre nom" id="nom" name="nom" value="<?php if(isset($nom)) { echo $nom; } ?>" />
+						</td>
+					</tr>
+          <tr>
+						<td align="right">
+							<label for="prenom">Prénom :</label>
+						</td>
+						<td>
+							<input type="text" placeholder="Votre prénom" id="prenom" name="prenom" value="<?php if(isset($prenom)) { echo $prenom; } ?>" />
 						</td>
 					</tr>
 					<tr>

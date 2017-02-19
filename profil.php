@@ -29,10 +29,12 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
 	</head>
 	<body>
 		<div align="center">
-			<h2>Profil de <?php echo $userinfo['pseudo']; ?></h2>
+			<h2>Profil de <?php echo $userinfo['nom']; echo " "; echo $userinfo['prenom']; ?></h2>
 			<br /><br />
 
-			Pseudo = <?php echo $userinfo['pseudo']; ?>
+			Nom = <?php echo $userinfo['nom']; ?>
+			<br />
+      Prénom = <?php echo $userinfo['prenom']; ?>
 			<br />
 			Mail = <?php echo $userinfo['mail']; ?>
 			<br />
