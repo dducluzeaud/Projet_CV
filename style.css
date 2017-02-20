@@ -1,0 +1,47 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Bitter', serif;
+    display: table;
+    width: 100%;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    display: table-row;
+    width: 100%;
+    /* à titre d'exemple */
+}
+
+.recherche {
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.jumbotron{
+  size: 100%;
+  color: #fff;
+  text-align: center;
+  background-color: #134c6c;
+  margin-bottom: 0px;
+}
+
+.btn-rond {
+  height: 80px;
+  width: 80px;
+  border-radius: 100%;
+}
+
+.pied_de_page{
+  color: #fff;
+  text-align: center;
+  background-color: #134c6c;
+  margin-bottom: 0px;
+}
