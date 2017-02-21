@@ -10,25 +10,16 @@ session_start();
 
   <meta charset="utf-8">
   <title>Accueil CV</title>
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="style.css"/>
-  <style type=text/css>
+  <link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
 
-
-
-  body {
-    margin-left: : 100px;
-    font-family: 'Bitter', serif;
-    background-color: #fff;
-    color: #259;
-  }
-  </style>
 </head>
 
 <body>
 
   <?php include("header.php");?>
-<br><br>
+
+  <br><br>
   <section class="recherche">
     <div class="container">
       <div class="row">

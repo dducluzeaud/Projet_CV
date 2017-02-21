@@ -1,42 +1,45 @@
 html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: 'Bitter', serif;
-    display: table;
-    width: 100%;
+  font-family: 'Bitter', serif;
+  display: table;
+  width: 100%;
+  color: #000;
 }
 
 footer {
-    position: absolute;
-    bottom: 0;
-    display: table-row;
-    width: 100%;
-    /* à titre d'exemple */
+  position: absolute;
+  bottom: 0;
+  display: table-row;
+  width: 100%;
+  /* à titre d'exemple */
 }
 
 .recherche {
-    text-align: center;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
+  text-align: center;
+  width: 90%;
+  justify-content: center;
+  align-items: center;
 }
 
 .jumbotron{
-  size: 100%;
   color: #fff;
   text-align: center;
   background-color: #134c6c;
   margin-bottom: 0px;
+  height: 30%;
 }
 
 .btn-rond {
-  height: 80px;
-  width: 80px;
-  border-radius: 100%;
+  width: 75px;
+  height: 75px;
+
+  border-radius: 50%
+  ;margin: 0 5px;
 }
 
 .pied_de_page{
@@ -44,4 +47,26 @@ footer {
   text-align: center;
   background-color: #134c6c;
   margin-bottom: 0px;
+  font-size: 10px;
+}
+
+.modal-title{
+  color: #000;
+}
+
+.modal-body{
+  align-content: center;
+}
+
+label{
+  color: #404040;
+}
+
+.container-fluid{
+  background-color: #134c6c;
+  color: #FFF;
+}
+
+.error{
+  text-align: center;
 }

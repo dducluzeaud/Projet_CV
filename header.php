@@ -3,21 +3,57 @@
 
 <head>
   <meta charset="utf-8">
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="style.css"/>
-
+  <link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 
-  <body>
+<body>
 
-  <header class="jumbotron">
+  <header class="container-fluid error">
+    <a href="accueil.php"><img class=" col-md-2 hidden-sm hidden-xs" src="image/logoMaster.png" alt="logo"></a>
+    <h1 class="col-md-8">Curriculum Vitae</h1>
 
-    <a href="./connexion.php"  class="pull-right btn btn-primary btn-rond"><span class="glyphicon glyphicon-user"></span><br class="text-center">Connexion</a>
-    <a href="accueil.php"><img class="pull-left hidden-xs" src="image/logoMaster.png" alt="logo"></a>
-    <h1>Curriculum Vitae</h1>
+    <div class="btn-group">
+      <br>
+      <?php if (isset($_SESSION['id'])) {
+        ?>
 
-  </header>
+        <div class="btn-group col-md-2">
+          <button  type="button" class="btn-rond btn-primary dropdown-toggle" data-toggle="dropdown"> Mon compte<span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="profil.php?id=<?php echo $_SESSION['id'];?>"><span class="glyphicon glyphicon-user"></span> Editer votre profil</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-picture"></span> Créer votre CV</a></li>
+            <li><a href="deconnexion.php"><span class="glyphicon glyphicon-screenshot"></span> Déconnexion</a></li>
+          </ul>
+        </div>
+        <?php
 
-</body>
+      } else {
+        ?>
+        <div class="btn-group btn-justify">
 
-</html>
+          <a href="inscription.php "type="submit" class="btn btn-default">Inscription</a>
+
+          <a href="connexion.php "type="submit" class="btn btn-primary">Connexion</a>
+
+        </div>
+
+
+
+        <?php } ?>
+
+        <script src="bootstrap/js/jquery.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script type="bootstrap/js/jquery.js"></script>
+
+        <script>
+        $("#connexion").click(function{
+          window.Location('connexion.php');
+        });
+      });
+      </script>
+    </header>
+
+  </body>
+
+  </html>
