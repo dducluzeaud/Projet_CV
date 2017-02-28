@@ -6,9 +6,9 @@ include('connexion_BDD.php');
 
 include_once('cookieconnect.php');
 
-if (isset($_GET['id']) and $_GET['id'] > 0) {
-  $getid = intval($_GET['id']);
-  $requser = $bdd->prepare('SELECT * FROM membres WHERE id = ?');
+if (isset($_GET['ID_etu']) and $_GET['ID_etu'] > 0) {
+  $getid = intval($_GET['ID_etu']);
+  $requser = $bdd->prepare('SELECT * FROM etudiant WHERE ID_etu = ?');
   $requser->execute(array($getid));
   $userinfo = $requser->fetch(); ?>
 
@@ -53,7 +53,7 @@ if (isset($_GET['id']) and $_GET['id'] > 0) {
 
 
     <?php
-    if (isset($_SESSION['id']) and $userinfo['id'] == $_SESSION['id']) {
+    if (isset($_SESSION['ID_etu']) and $userinfo['ID_etu'] == $_SESSION['ID_etu']) {
       ?>
       <br />
 

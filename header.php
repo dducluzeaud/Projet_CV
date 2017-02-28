@@ -15,13 +15,13 @@
 
     <div class="btn-group">
       <br>
-      <?php if (isset($_SESSION['id'])) {
+      <?php if (isset($_SESSION['ID_etu'])) {
         ?>
 
         <div class="btn-group col-md-2">
           <button  type="button" class="btn-rond btn-primary dropdown-toggle" data-toggle="dropdown"> Mon compte<span class="caret"></span></button>
           <ul class="dropdown-menu">
-            <li><a href="profil.php?id=<?php echo $_SESSION['id'];?>"><span class="glyphicon glyphicon-user"></span> Editer votre profil</a></li>
+            <li><a href="profil.php?ID_etu=<?php echo $_SESSION['ID_etu'];?>"><span class="glyphicon glyphicon-user"></span> Editer votre profil</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-picture"></span> Créer votre CV</a></li>
             <li><a href="deconnexion.php"><span class="glyphicon glyphicon-screenshot"></span> Déconnexion</a></li>
           </ul>

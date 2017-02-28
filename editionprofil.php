@@ -5,33 +5,33 @@ include('connexion_BDD.php');
 
 include_once('cookieconnect.php');
 
-if(isset($_SESSION['id']))
+if(isset($_SESSION['ID_etu']))
 {
-  $requser = $bdd->prepare("SELECT * FROM membres WHERE id = ?");
-  $requser->execute(array($_SESSION['id']));
+  $requser = $bdd->prepare("SELECT * FROM etudiant WHERE ID_etu = ?");
+  $requser->execute(array($_SESSION['ID_etu']));
   $user = $requser->fetch();
 
   if(isset($_POST['newNom']) AND !empty($_POST['newNom']) AND $_POST['newNom'] != $user['nom'])
   {
     $newNom = htmlspecialchars($_POST['newNom']);
-    $insertNom = $bdd->prepare("UPDATE membres SET nom = ? WHERE id = ?");
-    $insertNom->execute(array($newNom, $_SESSION['id']));
-    header('Location: profil.php?id='.$_SESSION['id']);
+    $insertNom = $bdd->prepare("UPDATE etudiant SET nom = ? WHERE ID_etu = ?");
+    $insertNom->execute(array($newNom, $_SESSION['ID_etu']));
+    header('Location: profil.php?ID_etu='.$_SESSION['ID_etu']);
   }
   if(isset($_POST['newPrenom']) AND !empty($_POST['newPrenom']) AND $_POST['newPrenom'] != $user['prenom'])
   {
     $newPrenom = htmlspecialchars($_POST['newPrenom']);
-    $insertPrenom = $bdd->prepare("UPDATE membres SET prenom = ? WHERE id = ?");
-    $insertPrenom->execute(array($newPrenom, $_SESSION['id']));
-    header('Location: profil.php?id='.$_SESSION['id']);
+    $insertPrenom = $bdd->prepare("UPDATE membres SET prenom = ? WHERE ID_etu = ?");
+    $insertPrenom->execute(array($newPrenom, $_SESSION['ID_etu']));
+    header('Location: profil.php?ID_etu='.$_SESSION['ID_etu']);
   }
 
   if(isset($_POST['newmail']) AND !empty($_POST['newmail']) AND $_POST['newmail'] != $user['mail'])
   {
     $newmail = htmlspecialchars($_POST['newmail']);
-    $insertmail = $bdd->prepare("UPDATE membres SET mail = ? WHERE id = ?");
-    $insertmail->execute(array($newmail, $_SESSION['id']));
-    header('Location: profil.php?id='.$_SESSION['id']);
+    $insertmail = $bdd->prepare("UPDATE membres SET mail = ? WHERE ID_etu = ?");
+    $insertmail->execute(array($newmail, $_SESSION['ID_etu']));
+    header('Location: profil.php?ID_etu='.$_SESSION['ID_etu']);
   }
 
   if(isset($_POST['newmdp1']) AND !empty($_POST['newmdp1']) AND isset($_POST['newmdp2']) AND !empty($_POST['newmdp2']))
@@ -41,9 +41,9 @@ if(isset($_SESSION['id']))
 
     if($mdp1 == $mdp2)
     {
-      $insertmdp = $bdd->prepare("UPDATE membres SET motdepasse = ? WHERE id = ?");
-      $insertmdp->execute(array($mdp1, $_SESSION['id']));
-      header('Location: profil.php?id='.$_SESSION['id']);
+      $insertmdp = $bdd->prepare("UPDATE etudiant SET mdp = ? WHERE ID_etu = ?");
+      $insertmdp->execute(array($mdp1, $_SESSION['ID_etu']));
+      header('Location: profil.php?ID_etu='.$_SESSION['ID_etu']);
     }
     else
     {

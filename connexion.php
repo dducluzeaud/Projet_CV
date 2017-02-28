@@ -11,7 +11,7 @@ if(isset($_POST['formconnexion']))
   $mdpconnect = sha1($_POST['mdpconnect']);
   if(!empty($mailconnect) AND !empty($mdpconnect))
   {
-    $requser = $bdd->prepare("SELECT * FROM membres WHERE mail = ? AND motdepasse = ?");
+    $requser = $bdd->prepare("SELECT * FROM etudiant WHERE mail = ? AND mdp = ?");
     $requser->execute(array($mailconnect, $mdpconnect));
     $userexist = $requser->rowCount();
     if($userexist == 1)
@@ -21,11 +21,11 @@ if(isset($_POST['formconnexion']))
         setcookie('password',$mdpconnect,time()+365*24*3600,null,null,false,true);
       }
       $userinfo = $requser->fetch();
-      $_SESSION['id'] = $userinfo['id'];
+      $_SESSION['ID_etu'] = $userinfo['ID_etu'];
       $_SESSION['nom'] = $userinfo['nom'];
       $_SESSION['prenom'] = $userinfo['prenom'];
       $_SESSION['mail'] = $userinfo['mail'];
-      header("Location: profil.php?id=".$_SESSION['id']);
+      header("Location: profil.php?ID_etu=".$_SESSION['ID_etu']);
     }
     else
     {

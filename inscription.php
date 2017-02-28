@@ -17,15 +17,14 @@ if (isset($_POST['forminscription'])) {
       if ($prenom <= 50) {
         if ($mail == $mail2) {
           if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-            $reqmail = $bdd->prepare("SELECT * FROM membres WHERE mail = ?");
+            $reqmail = $bdd->prepare("SELECT * FROM etudiant WHERE mail = ?");
             $reqmail->execute(array($mail));
             $mailexist = $reqmail->rowCount();
             if ($mailexist == 0) {
               if ($mdp == $mdp2) {
-                $insertmbr = $bdd->prepare("INSERT INTO membres(nom, prenom, mail, motdepasse) VALUES(?, ?, ?, ?)");
+                $insertmbr = $bdd->prepare("INSERT INTO etudiant(nom, prenom, mail, mdp) VALUES(?, ?, ?, ?)");
                 $insertmbr->execute(array($nom, $prenom, $mail, $mdp));
-
-                $erreur = "Votre compte a bien été créé ! <a href=\"profil.php\">Me connecter</a>";
+                  header("Location: profil.php?ID_etu=".$_SESSION['ID_etu']);
               } else {
                 $erreur = "Vos mots de passes ne correspondent pas !";
               }
