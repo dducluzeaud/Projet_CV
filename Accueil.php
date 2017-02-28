@@ -39,14 +39,14 @@ session_start();
       </div>
     </div>
   </section>
-  
+
   <?php
 
   if (isset($_POST['requete']) && $_POST['requete'] != null) {
     include('connexion_BDD.php');
 
     $requete = htmlspecialchars($_POST['requete']);
-    $req = $bdd->prepare("SELECT nom, prenom
+    $req = $bdd->prepare("SELECT nom, prenom, mail
       FROM etudiant
       WHERE ID_etu IN (SELECT ID_etu
         FROM formations
@@ -62,6 +62,7 @@ session_start();
         if ($nb_resultats != 0) { // si le nombre de résultats est supérieur à 0, on continue
           ?>
 
+          <p class='error'>Nous avons trouvé <?php echo $nb_resultats ?> étudiants pour <?php echo $requete?></p>
           <br>
 
           <div class="container">
@@ -70,15 +71,13 @@ session_start();
             <div class="form-group">
               <div class="col-md-offset-3">
                 <div class="row">
-                  <div class="col-md-8">
+                  <div class="col-md-9">
                     <table class="table table table-striped">
                       <thead class="form-group">
                         <tr>
                           <th>Nom</th>
                           <th>Prénom</th>
                           <th>Email</th>
-                          <th>CV</th>
-                          <th>Télecharger</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -88,9 +87,10 @@ session_start();
                           <tr>
                             <td><?php echo $donnees['nom']; ?></td>
                             <td><?php  echo $donnees['prenom']; ?></td>
-                            <td><?php  echo $donnees['mail']; ?></td>
-                            <td><a href="#" class="btn btn-primary btn-large"><span class="glyphicon glyphicon-picture"></span></a></td>
-                            <td><a href="#" class="btn btn-success btn-large"><span class="glyphicon glyphicon-save"></span> </a></td>
+
+                            <td><?php echo $donnees['mail'];?></td>
+                            <td><a href="#" class="btn btn-primary btn-large btn-group"><span class="glyphicon glyphicon-picture"></span></a>
+                            <a href="#" class="btn btn-success btn-large btn-group"><span class="glyphicon glyphicon-save"></span> </a></td>
 
                           </tr>
                           <?php
