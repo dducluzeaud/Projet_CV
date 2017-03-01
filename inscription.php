@@ -25,7 +25,7 @@ if (isset($_POST['forminscription'])) {
                 $insertmbr = $bdd->prepare("INSERT INTO etudiant(nom, prenom, mail, mdp) VALUES(?, ?, ?, ?)");
                 $insertmbr->execute(array($nom, $prenom, $mail, $mdp));
 
-                $erreur = "Votre compte a bien été créé ! <a class=\"centrer\" href=\"connexion.php\"> Me connecter</a>";
+                $erreur = "Votre compte a bien été créé ! <a class=\"centrer\" href=\"connexion.php\">Me connecter</a>";
 
               } else {
                 $erreur = "Vos mots de passes ne correspondent pas !";
@@ -64,8 +64,7 @@ if (isset($_POST['forminscription'])) {
 </head>
 <body>
 
-</body>
-</html>
+
 
 
 <div class="container-fluid">
@@ -137,3 +136,5 @@ if (isset($_POST['forminscription'])) {
 
 </div>
 </body>
+
+</html>

@@ -50,9 +50,9 @@ session_start();
       FROM etudiant
       WHERE ID_etu IN (SELECT ID_etu
         FROM formations
-        WHERE intitule_form1 LIKE :requete
-        or intitule_form2 Like :requete
-        or intitule_form3 LIKE :requete
+        WHERE intitule_formation1 LIKE :requete
+        or intitule_formation2 Like :requete
+        or intitule_formation3 LIKE :requete
         ORDER BY id DESC)");
 
         $req->execute(array('requete' => $requete . '%'));
@@ -61,7 +61,7 @@ session_start();
         $nb_resultats = $req->rowCount();
         if ($nb_resultats != 0) { // si le nombre de résultats est supérieur à 0, on continue
 
-          if ($nb_resultats = 1){ ?>
+          if ($nb_resultats < 2){ ?>
             <div class="container">
               <div class="col-lg-12">
                 <p class='centrer'>Nous avons trouvé <?php echo $nb_resultats ?> étudiant pour <?php echo $requete?></p>
@@ -71,7 +71,7 @@ session_start();
             <?php  } else { ?>
               <div class="container">
                 <div class="col-lg-12">
-                  <p class=' '>Nous avons trouvé <?php echo $nb_resultats ?> étudiants pour <?php echo $requete?></p>
+                  <p class="center">Nous avons trouvé <?php echo $nb_resultats ?> étudiants pour <?php echo $requete?></p>
                   <br>
                 </div>
               </div>
