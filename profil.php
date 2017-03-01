@@ -3,7 +3,6 @@ session_start();
 
 include('connexion_BDD.php');
 
-
 include_once('cookieconnect.php');
 
 if (isset($_GET['ID_etu']) and $_GET['ID_etu'] > 0) {
