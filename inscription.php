@@ -24,7 +24,9 @@ if (isset($_POST['forminscription'])) {
               if ($mdp == $mdp2) {
                 $insertmbr = $bdd->prepare("INSERT INTO etudiant(nom, prenom, mail, mdp) VALUES(?, ?, ?, ?)");
                 $insertmbr->execute(array($nom, $prenom, $mail, $mdp));
-                  header("Location: profil.php?ID_etu=".$_SESSION['ID_etu']);
+
+                $erreur = "Votre compte a bien été créé ! <a class=\"centrer\" href=\"connexion.php\"> Me connecter</a>";
+
               } else {
                 $erreur = "Vos mots de passes ne correspondent pas !";
               }
