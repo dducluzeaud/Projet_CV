@@ -61,9 +61,13 @@ session_start();
         $nb_resultats = $req->rowCount();
         if ($nb_resultats != 0) { // si le nombre de résultats est supérieur à 0, on continue
           ?>
+          <div class="container">
+            <div class="col-lg-12">
+              <p class='error'>Nous avons trouvé <?php echo $nb_resultats ?> étudiants pour <?php echo $requete?></p>
+              <br>
+            </div>
+          </div>
 
-          <p class='error'>Nous avons trouvé <?php echo $nb_resultats ?> étudiants pour <?php echo $requete?></p>
-          <br>
 
           <div class="container">
 
@@ -88,10 +92,10 @@ session_start();
                             <td><?php echo $donnees['nom']; ?></td>
                             <td><?php  echo $donnees['prenom']; ?></td>
 
-                            <td><?php echo $donnees['mail'];?></td>
+                            <td><a href="mailto:<?php $donnees['mail']; ?>"><?php echo $donnees['mail']; ?></a>
+</td>
                             <td><a href="#" class="btn btn-primary btn-large btn-group"><span class="glyphicon glyphicon-picture"></span></a>
                             <a href="#" class="btn btn-success btn-large btn-group"><span class="glyphicon glyphicon-save"></span> </a></td>
-
                           </tr>
                           <?php
 

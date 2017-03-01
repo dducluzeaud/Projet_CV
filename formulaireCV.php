@@ -94,14 +94,14 @@ include('connexion_BDD.php')
       </div>
       <div class="form-group">
         <label for="text">Intitulé de la formation : </label>
-        <input id="intitulé_form1" type="text" class="form-control"></textarea>
+        <input id="intitule_form1" type="text" class="form-control"></textarea>
       </div>
       <div class="form-group">
         <label for="text">Université :</label>
-        <input id="Université1" type="text" class="form-control"></textarea>
+        <input id="universite1" type="text" class="form-control"></textarea>
       </div>
       <label for="select">Mention : </label>
-      <select id="Mention" class="form-control">
+      <select id="mention1" class="form-control">
         <option></option>
         <option>Passable</option>
         <option>Assez-Bien</option>
@@ -111,7 +111,7 @@ include('connexion_BDD.php')
       </select>
       <br>
       <label for="textarea">Description de la formation: </label>
-      <textarea id="textDescription_form1" type="textarea" class="form-control"></textarea>
+      <textarea id="description_form1" type="textarea" class="form-control"></textarea>
       <br>
     </form>
 
@@ -120,18 +120,18 @@ include('connexion_BDD.php')
       <legend>Formations n°2:</legend>
       <div class="form-group">
         <label for="text">Année d'optention du diplôme:  </label>
-        <input id="annee_diplome1" type="number" class="form-control">
+        <input id="annee_diplome2" type="number" class="form-control">
       </div>
       <div class="form-group">
         <label for="text">Intitulé de la formation : </label>
-        <input id="intitulé_form1" type="text" class="form-control"></textarea>
+        <input id="intitule_form2" type="text" class="form-control"></textarea>
       </div>
       <div class="form-group">
         <label for="text">Université :</label>
-        <input id="Université1" type="text" class="form-control"></textarea>
+        <input id="universite2" type="text" class="form-control"></textarea>
       </div>
       <label for="select">Mention : </label>
-      <select id="Mention" class="form-control">
+      <select id="mention2" class="form-control">
         <option></option>
         <option>Passable</option>
         <option>Assez-Bien</option>
@@ -141,7 +141,7 @@ include('connexion_BDD.php')
       </select>
       <br>
       <label for="textarea">Description de la formation: </label>
-      <textarea id="Description_form2" type="textarea" class="form-control"></textarea>
+      <textarea id="description_form2" type="textarea" class="form-control"></textarea>
       <br>
     </form>
 
@@ -150,18 +150,18 @@ include('connexion_BDD.php')
       <legend>Formations n°3:</legend>
       <div class="form-group">
         <label for="text">Année d'optention du diplôme:  </label>
-        <input id="annee_diplome1" type="number" class="form-control">
+        <input id="annee_diplome3" type="number" class="form-control">
       </div>
       <div class="form-group">
         <label for="text">Intitulé de la formation : </label>
-        <input id="intitulé_form1" type="text" class="form-control"></textarea>
+        <input id="intitule_form3" type="text" class="form-control"></textarea>
       </div>
       <div class="form-group">
         <label for="text">Université :</label>
-        <input id="Université1" type="text" class="form-control"></textarea>
+        <input id="universite3" type="text" class="form-control"></textarea>
       </div>
       <label for="select">Mention : </label>
-      <select id="Mention" class="form-control">
+      <select id="mention3" class="form-control">
         <option></option>
         <option>Passable</option>
         <option>Assez-Bien</option>
@@ -171,7 +171,7 @@ include('connexion_BDD.php')
       </select>
       <br>
       <label for="textarea">Description de la formation: </label>
-      <textarea id="Description_form3" type="textarea" class="form-control"></textarea>
+      <textarea id="description_form3" type="textarea" class="form-control"></textarea>
       <br>
     </form>
 
@@ -183,7 +183,7 @@ include('connexion_BDD.php')
         <input id="annee_xp1" type="number" class="form-control">
       </div>
       <label for="textarea">Description de votre expérience: </label>
-      <textarea id="Description_xp1" type="textarea" class="form-control"></textarea>
+      <textarea id="description_xp1" type="textarea" class="form-control"></textarea>
     </form>
 
     <form class="col-lg-12" name="inscription" method="post" action="formulairesite.php">
@@ -193,7 +193,7 @@ include('connexion_BDD.php')
         <input id="annee_xp2" type="number" class="form-control">
       </div>
       <label for="textarea">Description de votre expérience: </label>
-      <textarea id="Description_xp2" type="textarea" class="form-control"></textarea>
+      <textarea id="description_xp2" type="textarea" class="form-control"></textarea>
       <br>
     </form>
 
@@ -204,7 +204,7 @@ include('connexion_BDD.php')
         <input id="annee_xp3" type="number" class="form-control">
       </div>
       <label for="textarea">Description de votre expérience: </label>
-      <textarea id="Description_xp3" type="textarea" class="form-control"></textarea>
+      <textarea id="description_xp3" type="textarea" class="form-control"></textarea>
       <br>
     </form>
 
@@ -228,48 +228,5 @@ include('connexion_BDD.php')
       <a href="#" class="btn btn-block btn-danger">Enregistrez votre CV <span class="glyphicon glyphicon-hdd"></span></a>
     </div>
   </div>
-
-  <?php
-  if (isset($_POST['valider'])) {
-    //On récupère les valeurs entrées par l'utilisateur :
-    $email=$_POST['email'];
-    $age=$_POST['age'];
-    $sexe=$_POST['sexe'];
-    //On construit la date d'aujourd'hui
-    //strictement comme sql la construit
-    $today = date("y-m-d");
-    // pour la table competence
-    $ruby=$_POST['ruby'];
-    $c=$_POST['c'];
-    $cpp=$_POST['cpp'];
-    $merise=$_POST['merise'];
-    $python=$_POST['python'];
-    $objectivec=$_POST['objectivec'];
-    $perl=$_POST['perl'];
-    $r=$_POST['r'];
-    $pascal=$_POST['pascal'];
-    $swift=$_POST['swift'];
-
-    //Appel de la fonction de connexion
-    connectMaBase();
-
-    //On prépare la commande sql d'insertion
-    $sql1 = 'INSERT INTO etudiant VALUES("0","'.$email.'","'.$sexe.'","'.$age.'","'.$today.'")';
-    $sql2 = 'INSERT INTO competence VALUES("'.$ruby.'","'.$c.'","'.$cpp.'","'.$merise.'","'.$python.'","'.$objectivec.'","'.$perl.'","'.$r.'","'.$pascal.'","'.$swift.'")';
-
-
-    /*on lance la commande (mysql_query) et au cas où,
-    on rédige un message d'erreur si la requête ne passe pas (or die)
-    (Message qui intègrera les causes d'erreur sql)*/
-    mysql_query($sql1) or die('Erreur SQL !'.$sql.'<br />'.mysql_error());
-    mysql_query($sql2) or die('Erreur SQL !'.$sql.'<br />'.mysql_error());
-
-    // fermeture de la connexion la connexion
-    mysql_close();
-  }
-  ?>
-
-
 </body>
-
 </html>
