@@ -2,8 +2,9 @@
 
 session_start();
 
-include('connexion_BDD.php')
+include('connexion_BDD.php');
 
+include('isset.php');
 ?>
 
 <!DOCTYPE html>
@@ -226,7 +227,10 @@ include('connexion_BDD.php')
   <div class="container">
     <div class="col-lg-12">
       <a href="#" class="btn btn-block btn-danger">Enregistrez votre CV <span class="glyphicon glyphicon-hdd"></span></a>
+
+
     </div>
   </div>
+<br>
 </body>
 </html>

@@ -30,7 +30,7 @@ if (isset($_GET['ID_etu']) and $_GET['ID_etu'] > 0) {
 
     <br>
 
-<div class="error">
+<div class="centrer">
   <div class="form-group">
     <h3>Vos informations sont :</h3>
   </div>
@@ -57,7 +57,7 @@ if (isset($_GET['ID_etu']) and $_GET['ID_etu'] > 0) {
       ?>
       <br />
 
-      <div class="  error">
+      <div class="  centrer">
 
           <a href="accueil.php" class="btn btn-primary">Accueil <span class="glyphicon glyphicon-home"></span></a>
           <a href="editionprofil.php" class="btn btn-info">Editer mon profil <span class="glyphicon glyphicon-user"></span></a>

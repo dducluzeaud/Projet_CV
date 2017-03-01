@@ -65,7 +65,7 @@ if(isset($_POST['formconnexion']))
       <div class="form-group col-lg-offset-4 ">
         <div class="col-lg-5">
           <div class="form-group">
-            <div id="remember" class="checkbox error">
+            <div id="remember" class="checkbox centrer">
               <label>
                 <input class="btn btn-lg btn-primary btn-block btn-signin " type="checkbox" value="remember-me"> Se souvenir de moi
               </label>
@@ -74,7 +74,7 @@ if(isset($_POST['formconnexion']))
               <input type="submit" name="formconnexion"  class="btn btn-primary form-control" value="Se connecter !" />
             </div>
 
-            <div class="form-group error">
+            <div class="form-group centrer">
               <?php
               if(isset($erreur))
               {

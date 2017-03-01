@@ -26,13 +26,7 @@ footer {
   align-items: center;
 }
 
-.jumbotron{
-  color: #fff;
-  text-align: center;
-  background-color: #134c6c;
-  margin-bottom: 0px;
-  height: 30%;
-}
+
 
 .btn-rond {
   width: 75px;
@@ -67,6 +61,6 @@ label{
   color: #FFF;
 }
 
-.error{
+.centrer{
   text-align: center;
 }

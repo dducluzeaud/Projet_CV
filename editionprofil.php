@@ -100,7 +100,7 @@ if(isset($_SESSION['ID_etu']))
           <input class="form-control" type="password" name="newmdp2" placeholder="Confirmation du mot de passe" /><br /><br />
         </div>
 
-        <div class="error ">
+        <div class="centrer ">
           <input class="btn btn-primary" type="submit" value="Valider " />
           <input type="reset" value="Annuler" name="reset" class="btn btn-danger">
 
@@ -108,7 +108,7 @@ if(isset($_SESSION['ID_etu']))
         </div>
 
       </form>
-      <div class="error">
+      <div class="centrer">
         <?php if(isset($msg)) { echo $msg; } ?>
       </div>
     </div>
