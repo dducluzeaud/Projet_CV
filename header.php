@@ -22,10 +22,10 @@
           <button  type="button" class="btn-rond btn-primary dropdown-toggle" data-toggle="dropdown"> Mon compte<span class="caret"></span></button>
           <ul class="dropdown-menu">
             <li><a href="profil.php?ID_etu=<?php echo $_SESSION['ID_etu'];?>"><span class="glyphicon glyphicon-user"></span> Voir votre profil</a></li>
-            <?php if(!empty($donnees['age'])) {
+            <?php if(!empty($_POST['intitule_formation1'] )) {
               echo '<li><a href="#"><span class="glyphicon glyphicon-picture"></span> Modifier votre CV</a></li>';
             } else {
-             echo'<li><a href="formulaireCV.php"><span class="glyphicon glyphicon-file"></span> Créer son CV </a></li>';
+             echo'<li><a href="formulaireCV.php?ID_etu=<?php echo $_SESSION[\'ID_etu\'];?>"><span class="glyphicon glyphicon-file"></span> Créer son CV </a></li>';
            }?>
             <li><a href="deconnexion.php"><span class="glyphicon glyphicon-off"></span> Déconnexion</a></li>
           </ul>

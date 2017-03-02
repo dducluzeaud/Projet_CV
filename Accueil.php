@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 ?>
@@ -102,7 +101,7 @@ session_start();
 
                                 <td><a href="mailto:<?php $donnees['mail']; ?>"><?php echo $donnees['mail']; ?></a>
                                 </td>
-                                <td><a href="#" class="btn btn-primary btn-large btn-group"><span class="glyphicon glyphicon-picture"></span></a>
+                                <td><a href="CV.php" class="btn btn-primary btn-large btn-group"><span class="glyphicon glyphicon-picture"></span></a>
                                   <a href="#" class="btn btn-success btn-large btn-group"><span class="glyphicon glyphicon-save"></span> </a></td>
                                 </tr>
                                 <?php

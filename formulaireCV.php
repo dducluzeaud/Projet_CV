@@ -16,7 +16,7 @@ include_once('cookieconnect.php');
   <title>Créer votre CV</title>
 </head>
 <body>
-  
+
   <?php include('header.php');
 
         include ('isset.php');
@@ -65,7 +65,7 @@ include_once('cookieconnect.php');
       <legend>Formations n°1:</legend>
       <div class="form-group">
         <label for="text">Année d'optention du diplôme:  </label>
-        <input id="annee_diplome1" name="annee_diplome1" type="number" class="form-control" value="<?php if (isset($annee_diplome1)) {echo $annee_diplome1;} ?>">
+        <input id="annee_diplome1" name="annee_diplome1" type="number" class="form-control" min="1900" max=" <?php echo date('Y')?> " value="<?php if (isset($annee_diplome1)) {echo $annee_diplome1;} ?>">
       </div>
       <div class="form-group">
         <label for="text">Intitulé de la formation : </label>
@@ -86,13 +86,13 @@ include_once('cookieconnect.php');
       </select>
       <br>
       <label for="textarea">Description de la formation: </label>
-      <textarea id="description_form1" name="description_form1" type="textarea" class="form-control"value="<?php if (isset($description_form1)) {echo $description_form1;} ?>"></textarea>
+      <textarea id="description_form1" name="description_form1" type="textarea" class="form-control" ></textarea>
       <br>
 
       <legend>Formations n°2:</legend>
       <div class="form-group">
         <label for="text">Année d'optention du diplôme:  </label>
-        <input id="annee_diplome2" name="annee_diplome2" type="number" class="form-control" value="<?php if (isset($annee_diplome2)) {echo $annee_diplome2;} ?>">
+        <input id="annee_diplome2" name="annee_diplome2" type="number" class="form-control" min="1900" max=" <?php echo date('Y')?> " value="<?php if (isset($annee_diplome2)) {echo $annee_diplome2;} ?>">
       </div>
       <div class="form-group">
         <label for="text">Intitulé de la formation : </label>
@@ -113,13 +113,13 @@ include_once('cookieconnect.php');
       </select>
       <br>
       <label for="textarea">Description de la formation: </label>
-      <textarea id="description_form2" name="description_form2" type="textarea" class="form-control" value="<?php if (isset($description_form2)) {echo $description_form2;} ?>"></textarea>
+      <textarea id="description_form2" name="description_form2" type="textarea" class="form-control" ></textarea>
       <br>
 
       <legend>Formations n°3:</legend>
       <div class="form-group">
         <label for="text">Année d'optention du diplôme:  </label>
-        <input id="annee_diplome3" name="annee_diplome3" type="number" class="form-control" value="<?php if (isset($annee_diplome3)) {echo $annee_diplome3;} ?>">
+        <input id="annee_diplome3" name="annee_diplome3" type="number" min="1900" max=" <?php echo date('Y')?> " class="form-control" value="<?php if (isset($annee_diplome3)) {echo $annee_diplome3;} ?>">
       </div>
       <div class="form-group">
         <label for="text">Intitulé de la formation : </label>
@@ -140,38 +140,38 @@ include_once('cookieconnect.php');
       </select>
       <br>
       <label for="textarea">Description de la formation: </label>
-      <textarea id="description_form3" name="description_form3" type="textarea" class="form-control" value="<?php if (isset($description_form3)) {echo $description_form3;} ?>"></textarea>
+      <textarea id="description_form3" name="description_form3" type="textarea" class="form-control" ></textarea>
       <br>
 
       <legend>Expérience Professionelles n°1</legend>
       <div class="form-group">
         <label for="text">Année du stage ou du travail:  </label>
-        <input id="annee_xp1" name="annee_xp1" type="number" class="form-control" value="<?php if (isset($annee_xp1)) {echo $annee_xp1;} ?>">
+        <input id="annee_xp1" name="annee_xp1" type="text" class="form-control" value="<?php if (isset($annee_xp1)) {echo $annee_xp1;} ?>">
       </div>
       <label for="textarea">Description de votre expérience: </label>
-      <textarea id="description_xp1" name="description_xp1" type="textarea" class="form-control" value="<?php if (isset($description_xp1)) {echo $description_xp1;} ?>"></textarea>
+      <textarea id="description_xp1" name="description_xp1" type="textarea" class="form-control" ></textarea>
 
       <legend>Expérience Professionelles n°2</legend>
       <div class="form-group">
         <label for="text">Année du stage ou du travail:  </label>
-        <input id="annee_xp2" name="annee_xp2" type="number" class="form-control">
+        <input id="annee_xp2" name="annee_xp2" type="text" class="form-control">
       </div>
       <label for="textarea">Description de votre expérience: </label>
-      <textarea id="description_xp2" name="description_xp2" type="textarea" class="form-control" value="<?php if (isset($description_xp2)) {echo $description_xp2;} ?>"></textarea>
+      <textarea id="description_xp2" name="description_xp2" type="textarea" class="form-control" ></textarea>
       <br>
 
       <legend>Expérience Professionelles n°3</legend>
       <div class="form-group">
         <label for="text">Année du stage ou du travail:  </label>
-        <input id="annee_xp3" name="annee_xp3" type="number" class="form-control" value="<?php if (isset($annee_xp3)) {echo $annee_xp3;} ?>">
+        <input id="annee_xp3" name="annee_xp3" type="text" class="form-control" value="<?php if (isset($annee_xp3)) {echo $annee_xp3;} ?>">
       </div>
       <label for="textarea">Description de votre expérience: </label>
-      <textarea id="description_xp3" name="description_xp3" type="textarea" class="form-control" value="<?php if (isset($description_xp3)) {echo $description_xp3;} ?>"></textarea>
+      <textarea id="description_xp3" name="description_xp3" type="textarea" class="form-control" ></textarea>
       <br>
 
       <legend>Vie associative</legend>
       <label for="textarea"></label>
-      <textarea id="association" name="association" type="textarea" class="form-control" value="<?php if (isset($association)) {echo $association;} ?>"></textarea>
+      <textarea id="association" name="association" type="textarea" class="form-control" ></textarea>
       <br>
 
       <legend>Divers</legend>

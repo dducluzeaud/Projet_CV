@@ -57,8 +57,9 @@ if (isset ($_POST['valider'])){
         $portablelength = strlen($portable);
         if ($portable ==10) {
 
-          $insertmbr = $bdd->prepare("INSERT INTO etudiant(age, adresse, fixe, portable) VALUES (?,?,?,?)");
-          $insertmbr-> execute(array($age,$adresse,$fixe,$portable,$sexe));
+
+          $insertmbr = $bdd->prepare("UPDATE INTO etudiant(age, adresse, telephone_fixe, telephone_portable) VALUES (?,?,?,?)");
+          $insertmbr->execute(array($age,$adresse,$fixe,$portable));
 
         } else {
           $erreur = "Le numéro de portable doit comporter 10 caractères";
@@ -76,53 +77,56 @@ if (isset ($_POST['valider'])){
 
 
 
-
   // insertion dans la table competences
+
   if (!empty($_POST['langue1'])){
-    $insertmbr = $bdd-> prepare("INSERT INTO competences(ID_etu,langue1,langue2,langue3) VALUES (?,?,?,?)");
-    $insertmbr-> execute(array($ID_etu,$langue1,$langue2,$langue3));
+    $insertmbr = $bdd->prepare("INSERT INTO competences(ID_etu,langues1,langues2,langues3) VALUES (?,?,?,?)");
+    $insertmbr->execute(array($ID_etu,$langue1,$langue2,$langue3));
   } else {
     $erreur = "Veuilez rentrer valeur dans le champ langue 1";
   }
 
+
   // insertion dans la table formations
+
+
   if (!empty($_POST['description_form1']) and !empty($_POST['universite1'] )) {
-    if (($annee_diplome1 or $annee_diplome2 or $annee_diplome3) <  date('Y')) {
-      if (($annee_diplome1 or $annee_diplome2 or $annee_diplome3) > 1900) {
+
 
         $insertmbr = $bdd->prepare("INSERT INTO formations(ID_etu, annee_diplome1,intitule_formation1,universite1,mention1,description_form1,annee_diplome2,intitule_formation2,universite2,mention2,description_form2,annee_diplome3,intitule_formation3,universite3,mention3,description_form3 ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
         $insertmbr->execute(array($ID_etu, $annee_diplome1,$intitule_formation1,$universite1,$mention1,$description_form1,$annee_diplome2,$intitule_formation2,$universite2,$mention2,$description_form2,$annee_diplome3,$intitule_formation3,$universite3,$mention3,$description_form3));
 
-      } else {
-        $erreur = "Les dates ne peuvent êtres inférieurs à 1900 !";
-      }
-    } else {
-      $erreur = "Les dates ne peuvent être supérieur à l'année en cours!";
-    }
+
   } else {
     $erreur = 'Veuillez renseigner tous les champs de la formation 1.';
   }
 
+
   // insertion dans la table expérience
   if (!empty($_POST['annee_xp1']) and !empty($_POST['description_xp1'])) {
-    if (($annee_xp1 || $annee_xp2 || $annee_xp3) > date('Y')) {
-      if (($annee_xp1 || $annee_xp2 || $annee_xp3) < 1900) {
-        $insertmbr = $bdd->prepare("INSERT INTO experiences(ID_etu, annee_xp1,description_xp1,annee_xp2,description_xp2,annee_xp3, description_xp3 ) VALUES (?,?,?,?,?,?,?)");
+
+        $insertmbr = $bdd->prepare("INSERT INTO experiences(ID_etu, annee_xp1,description1,annee_xp2,description2,annee_xp3, description3 ) VALUES (?,?,?,?,?,?,?)");
         $insertmbr->execute(array($ID_etu, $annee_xp1,$description_xp1,$annee_xp2,$description_xp2,$annee_xp3,$description_xp3));
-      } else {
-        $erreur = "Les dates ne peuvent être supérieur à l'anné en cours!";
-      }
-    } else {
-      $erreur = 'Veuillez renseigner tous les champs de la formation 1.';
-    }
+
+        $erreur = 'Enregistrement réussi ! Retournez vers votre profil . <a class=\"centrer\" href="profil.php?ID_etu= echo $_SESSION[\'ID_etu\'];>Profil</a>';
+
+  } else {
+    $erreur = "Veuillez renseigner tous les champs d'experience 1";
   }
 
-  // insertion dans la table associative
-  $insertmbr = $bdd-> prepare("INSERT INTO associatif(ID_etu, association) VALUES (?,?)");
-  $insertmbr->execute(array($ID_etu, $association));
 
-  //insertion dans la table divers
-  $insertmbr = $bdd-> prepare("INSERT INTO divers(ID_etu, divers) VALUES (?,?)");
-  $insertmbr->execute(array($ID_etu,$divers));
+
+
+
+
+
+// insertion dans la table associative
+$insertmbr = $bdd->prepare("INSERT INTO associatif(ID_etu, association) VALUES (?,?)");
+$insertmbr->execute(array($ID_etu, $association));
+
+//insertion dans la table divers
+$insertmbr = $bdd->prepare("INSERT INTO divers(ID_etu, divers) VALUES (?,?)");
+$insertmbr->execute(array($ID_etu,$divers));
+
 }
 ?>
