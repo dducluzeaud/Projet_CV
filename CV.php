@@ -1,13 +1,16 @@
 <?php
+session_start();
+
+include('connexion_BDD.php');
+
+include_once('cookieconnect.php');
 
 require("tpl/Smarty.class.php");
 
 $Smarty = new Smarty;
 
-include ('connexion_BDD.php');
 
-
-$reponse = $bdd->query('SELECT * FROM etudiant');
+$reponse = $bdd->query('SELECT * FROM etudiant WHERE id = $ID_etu ');
 $donnees = $reponse->fetch();
 
 
@@ -20,7 +23,7 @@ $Smarty->assign('telephone_portable',$donnees['telephone_portable']);
 
 
 
-$reponse = $bdd->query('SELECT * FROM competences');
+$reponse = $bdd->query('SELECT * FROM competences WHERE id = $ID_etu ');
 $donnees = $reponse->fetch();
 
 $Smarty->assign('langues1',$donnees['langues1']);
@@ -32,13 +35,13 @@ $donnees = $reponse->fetch();
 
 $Smarty->assign('association',$donnees['association']);
 
-$reponse = $bdd->query('SELECT * FROM divers');
+$reponse = $bdd->query('SELECT * FROM divers WHERE ID_etu ');
 $donnees = $reponse->fetch();
 
 $Smarty->assign('divers',$donnees['divers']);
 
 
-$reponse = $bdd->query('SELECT * FROM formations');
+$reponse = $bdd->query('SELECT * FROM formations WHERE id');
 $donnees = $reponse->fetch();
 
 $Smarty->assign('anneeform1',$donnees['annee_diplome1']);
@@ -60,7 +63,7 @@ $Smarty->assign('univ3',$donnees['universite3']);
 $Smarty->assign('mention3',$donnees['mention3']);
 
 
-$reponse = $bdd->query('SELECT * FROM experiences');
+$reponse = $bdd->query('SELECT * FROM experiences WHERE id  ');
 $donnees = $reponse->fetch();
 
 $Smarty->assign('anneexp1',$donnees['annee_xp1']);

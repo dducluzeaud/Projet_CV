@@ -62,11 +62,9 @@ if(isset($_SESSION['ID_etu']))
   </head>
   <body>
 
-    <div class="container-fluid">
-      <a href="accueil.php"><img class=" col-md-2 pull-left hidden-xs" src="image/logoMaster.png" alt="logo"></a>
-      <h1> Edition de mon profil </h1>
-    </div>
-    <br><br>
+<?php include('header.php') ?>
+
+
 
 
     <form method="POST" action="" enctype="multipart/form-data">

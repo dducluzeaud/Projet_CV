@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+include('connexion_BDD.php');
+
+include_once('cookieconnect.php');
+
 ?>
 
 
