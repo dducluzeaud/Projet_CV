@@ -31,43 +31,26 @@ if (isset($_GET['ID_etu']) and $_GET['ID_etu'] > 0) {
     if (isset($_SESSION['ID_etu']) and $userinfo['ID_etu'] == $_SESSION['ID_etu']) {
       ?>
       <br />
+      <br><br><br><br><br><br><br>
+      <div class="container">
 
-      <div class="  centrer">
+
+        <div class=" btn-group-vertical col-lg-6 col-lg-offset-3 centrer">
 
           <a href="accueil.php" class="btn btn-primary">Accueil <span class="glyphicon glyphicon-home"></span></a>
           <a href="editionprofil.php" class="btn btn-info">Editer mon profil <span class="glyphicon glyphicon-user"></span></a>
           <?php if(empty($donnees['age'] )) {
-          echo '<a href="formulaireCV.php" class="btn btn-primary">Créer son CV <span class="glyphicon glyphicon-file"></span></a>';
-        } else {
-          echo '<a href="editionCV.php" class="btn btn-primary">Modifier votre CV <span class="glyphicon glyphicon-file"></span></a>';
-        } ?>
+            echo '<a href="formulaireCV.php" class="btn btn-primary">Créer son CV <span class="glyphicon glyphicon-file"></span></a>';
+          } else {
+            echo '<a href="editionCV.php" class="btn btn-primary">Modifier votre CV <span class="glyphicon glyphicon-file"></span></a>';
+          } ?>
           <a href="CV.php" class="btn btn-success">Visualiser CV <span class="glyphicon glyphicon-eye-open"></span></a>
           <a href="deconnexion.php" class="btn btn-danger">Déconnexion <span class="glyphicon glyphicon-off"></span></a>
-<br><br>
-<br>
-<div class="centrer">
-  <div class="form-group">
-    <h3>Vos informations sont :</h3>
-  </div>
-  <div class="form-group">
-        Nom = <?php echo $userinfo['nom']; ?>
-    </div>
 
-
-    <div class="form-group">
-          Prénom = <?php echo $userinfo['prenom']; ?>
-    </div>
-
-
-    <div class="form-group">
-      Mail = <?php echo $userinfo['mail']; ?>
-    </div>
-</div>
-
+        </div>
       </div>
-
       <?php
-        include ('footer.php');
+      include ('footer.php');
     } ?>
   </div>
 </body>

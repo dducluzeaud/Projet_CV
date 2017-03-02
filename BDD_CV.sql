@@ -1,11 +1,3 @@
-n SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
---
--- Client :  localhost:8889
--- Généré le :  Jeu 02 Mars 2017 à 03:39
--- Version du serveur :  5.6.34
--- Version de PHP :  7.1.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -270,4 +262,3 @@ ALTER TABLE `experiences`
 --
 ALTER TABLE `formations`
   ADD CONSTRAINT `formations_ibfk_1` FOREIGN KEY (`ID_etu`) REFERENCES `etudiant` (`ID_etu`);
-

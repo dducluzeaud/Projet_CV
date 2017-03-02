@@ -67,60 +67,60 @@ if (isset($_POST['forminscription'])) {
 
 
 
-<div class="container-fluid">
-  <a href="accueil.php"><img class=" col-md-2 hidden-sm hidden-xs" src="image/logoMaster.png" alt="logo"></a>
-  <h1 class="col-md-8">Inscription</h1>
-</div>
+  <div class="container-fluid">
+    <a href="accueil.php"><img class=" col-md-2 hidden-sm hidden-xs" src="image/logoMaster.png" alt="logo"></a>
+    <h1 class="col-md-8">Inscription</h1>
+  </div>
 
-<br>
-<br>
+  <br>
+  <br>
 
-<div class="container">
+  <div class="container">
 
-  <form method="POST">
-    <div class="form-group">
-      <label for="nom">Nom :</label>
-      <input class="form-control" type="text" placeholder="Votre nom" id="nom" name="nom" value="<?php if (isset($nom)) {
-        echo $nom;
-      } ?>" />
-    </div>
+    <form method="POST">
+      <div class="form-group">
+        <label for="nom">Nom :</label>
+        <input class="form-control" type="text" placeholder="Votre nom" id="nom" name="nom" value="<?php if (isset($nom)) {
+          echo $nom;
+        } ?>" />
+      </div>
 
-    <div class="form-group">
-      <label for="prenom">Prénom :</label>
-      <input class="form-control" type="text" placeholder="Votre prénom" id="prenom" name="prenom" value="<?php if (isset($prenom)) {
-        echo $prenom;
-      } ?>" />
-    </div>
+      <div class="form-group">
+        <label for="prenom">Prénom :</label>
+        <input class="form-control" type="text" placeholder="Votre prénom" id="prenom" name="prenom" value="<?php if (isset($prenom)) {
+          echo $prenom;
+        } ?>" />
+      </div>
 
-    <div class="form-group">
-      <label for="mail">Mail :</label>
-      <input class="form-control" type="email" placeholder="Votre mail" id="mail" name="mail" value="<?php if (isset($mail)) {
-        echo $mail;
-      } ?>" />
-    </div>
+      <div class="form-group">
+        <label for="mail">Mail :</label>
+        <input class="form-control" type="email" placeholder="Votre mail" id="mail" name="mail" value="<?php if (isset($mail)) {
+          echo $mail;
+        } ?>" />
+      </div>
 
-    <div class="form-group">
-      <label for="mail2">Confirmation du mail :</label>
-      <input class="form-control" type="email" placeholder="Confirmez votre mail" id="mail2" name="mail2" value="<?php if (isset($mail2)) {
-        echo $mail2;
-      } ?>" />
-    </div>
+      <div class="form-group">
+        <label for="mail2">Confirmation du mail :</label>
+        <input class="form-control" type="email" placeholder="Confirmez votre mail" id="mail2" name="mail2" value="<?php if (isset($mail2)) {
+          echo $mail2;
+        } ?>" />
+      </div>
 
-    <div class="form-group">
-      <label for="mdp">Mot de passe :</label>
-      <input class="form-control" type="password" placeholder="Votre mot de passe" id="mdp" name="mdp" />
-    </div>
+      <div class="form-group">
+        <label for="mdp">Mot de passe :</label>
+        <input class="form-control" type="password" placeholder="Votre mot de passe" id="mdp" name="mdp" />
+      </div>
 
-    <div class="form-group">
-      <label for="mdp2">Confirmation du mot de passe :</label>
-      <input class="form-control" type="password" placeholder="Confirmez votre mdp" id="mdp2" name="mdp2" />
-    </div>
+      <div class="form-group">
+        <label for="mdp2">Confirmation du mot de passe :</label>
+        <input class="form-control" type="password" placeholder="Confirmez votre mdp" id="mdp2" name="mdp2" />
+      </div>
 
-    <div class="form-group">
-      <input class="form-control btn btn-primary" type="submit" name="forminscription" value="Je m'inscris" />
-    </div>
-  </tr>
-</table>
+      <div class="form-group">
+        <input class="form-control btn btn-primary" type="submit" name="forminscription" value="Je m'inscris" />
+      </div>
+    </tr>
+  </table>
 </form>
 </br>
 <div class="align-text:center error">

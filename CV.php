@@ -9,8 +9,9 @@ require("tpl/Smarty.class.php");
 
 $Smarty = new Smarty;
 
+$ID_etu=intval($_SESSION['ID_etu']);
 
-$reponse = $bdd->query('SELECT * FROM etudiant WHERE id = $ID_etu ');
+$reponse = $bdd->query('SELECT * FROM etudiant ');
 $donnees = $reponse->fetch();
 
 
@@ -23,7 +24,7 @@ $Smarty->assign('telephone_portable',$donnees['telephone_portable']);
 
 
 
-$reponse = $bdd->query('SELECT * FROM competences WHERE id = $ID_etu ');
+$reponse = $bdd->query('SELECT * FROM competences ');
 $donnees = $reponse->fetch();
 
 $Smarty->assign('langues1',$donnees['langues1']);
@@ -41,7 +42,7 @@ $donnees = $reponse->fetch();
 $Smarty->assign('divers',$donnees['divers']);
 
 
-$reponse = $bdd->query('SELECT * FROM formations WHERE id');
+$reponse = $bdd->query('SELECT * FROM formations');
 $donnees = $reponse->fetch();
 
 $Smarty->assign('anneeform1',$donnees['annee_diplome1']);
@@ -63,7 +64,7 @@ $Smarty->assign('univ3',$donnees['universite3']);
 $Smarty->assign('mention3',$donnees['mention3']);
 
 
-$reponse = $bdd->query('SELECT * FROM experiences WHERE id  ');
+$reponse = $bdd->query('SELECT * FROM experiences');
 $donnees = $reponse->fetch();
 
 $Smarty->assign('anneexp1',$donnees['annee_xp1']);

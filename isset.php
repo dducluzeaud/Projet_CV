@@ -5,6 +5,8 @@ if (isset ($_POST['valider'])){
 
   //recperation pour la table etudiant
   $ID_etu=intval($_SESSION['ID_etu']);
+
+  // recuperation pour la table informa
   $age=intval($_POST['age']);
   $adresse=htmlspecialchars($_POST['adresse']);
   $fixe=intval($_POST['fixe']);
@@ -58,8 +60,8 @@ if (isset ($_POST['valider'])){
         if ($portable ==10) {
 
 
-          $insertmbr = $bdd->prepare("UPDATE INTO etudiant(age, adresse, telephone_fixe, telephone_portable) VALUES (?,?,?,?)");
-          $insertmbr->execute(array($age,$adresse,$fixe,$portable));
+          $insertmbr = $bdd->prepare("INSERT INTO contact(ID_etu, age, adresse, telephone_fixe, telephone_portable) VALUES (?,?,?,?)");
+          $insertmbr->execute(array($ID_etu,$age,$adresse,$fixe,$portable));
 
         } else {
           $erreur = "Le numéro de portable doit comporter 10 caractères";
@@ -93,8 +95,8 @@ if (isset ($_POST['valider'])){
   if (!empty($_POST['description_form1']) and !empty($_POST['universite1'] )) {
 
 
-        $insertmbr = $bdd->prepare("INSERT INTO formations(ID_etu, annee_diplome1,intitule_formation1,universite1,mention1,description_form1,annee_diplome2,intitule_formation2,universite2,mention2,description_form2,annee_diplome3,intitule_formation3,universite3,mention3,description_form3 ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-        $insertmbr->execute(array($ID_etu, $annee_diplome1,$intitule_formation1,$universite1,$mention1,$description_form1,$annee_diplome2,$intitule_formation2,$universite2,$mention2,$description_form2,$annee_diplome3,$intitule_formation3,$universite3,$mention3,$description_form3));
+    $insertmbr = $bdd->prepare("INSERT INTO formations(ID_etu, annee_diplome1,intitule_formation1,universite1,mention1,description_form1,annee_diplome2,intitule_formation2,universite2,mention2,description_form2,annee_diplome3,intitule_formation3,universite3,mention3,description_form3 ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+    $insertmbr->execute(array($ID_etu, $annee_diplome1,$intitule_formation1,$universite1,$mention1,$description_form1,$annee_diplome2,$intitule_formation2,$universite2,$mention2,$description_form2,$annee_diplome3,$intitule_formation3,$universite3,$mention3,$description_form3));
 
 
   } else {
@@ -105,10 +107,10 @@ if (isset ($_POST['valider'])){
   // insertion dans la table expérience
   if (!empty($_POST['annee_xp1']) and !empty($_POST['description_xp1'])) {
 
-        $insertmbr = $bdd->prepare("INSERT INTO experiences(ID_etu, annee_xp1,description1,annee_xp2,description2,annee_xp3, description3 ) VALUES (?,?,?,?,?,?,?)");
-        $insertmbr->execute(array($ID_etu, $annee_xp1,$description_xp1,$annee_xp2,$description_xp2,$annee_xp3,$description_xp3));
+    $insertmbr = $bdd->prepare("INSERT INTO experiences(ID_etu, annee_xp1,description1,annee_xp2,description2,annee_xp3, description3 ) VALUES (?,?,?,?,?,?,?)");
+    $insertmbr->execute(array($ID_etu, $annee_xp1,$description_xp1,$annee_xp2,$description_xp2,$annee_xp3,$description_xp3));
 
-        $erreur = 'Enregistrement réussi ! Retournez vers votre profil . <a class=\"centrer\" href="profil.php?ID_etu= echo $_SESSION[\'ID_etu\'];>Profil</a>';
+    $erreur = 'Enregistrement réussi ! Retournez vers votre. <a class=\"centrer\" href="profil.php?ID_etu= echo .$_SESSION[\'ID_etu\'];">profil</a>';
 
   } else {
     $erreur = "Veuillez renseigner tous les champs d'experience 1";
@@ -120,13 +122,13 @@ if (isset ($_POST['valider'])){
 
 
 
-// insertion dans la table associative
-$insertmbr = $bdd->prepare("INSERT INTO associatif(ID_etu, association) VALUES (?,?)");
-$insertmbr->execute(array($ID_etu, $association));
+  // insertion dans la table associative
+  $insertmbr = $bdd->prepare("INSERT INTO associatif(ID_etu, association) VALUES (?,?)");
+  $insertmbr->execute(array($ID_etu, $association));
 
-//insertion dans la table divers
-$insertmbr = $bdd->prepare("INSERT INTO divers(ID_etu, divers) VALUES (?,?)");
-$insertmbr->execute(array($ID_etu,$divers));
+  //insertion dans la table divers
+  $insertmbr = $bdd->prepare("INSERT INTO divers(ID_etu, divers) VALUES (?,?)");
+  $insertmbr->execute(array($ID_etu,$divers));
 
 }
 ?>
