@@ -123,7 +123,7 @@ if (isset($_POST['forminscription'])) {
   </table>
 </form>
 </br>
-<div class="align-text:center error">
+<div class="centrer">
   <?php
   if (isset($erreur)) {
     echo '<font color="red">'.$erreur."</font>";

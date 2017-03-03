@@ -7,10 +7,10 @@ if (isset ($_POST['valider'])){
   $ID_etu=intval($_SESSION['ID_etu']);
 
   // recuperation pour la table informa
-  $age=intval($_POST['age']);
+  $age=($_POST['age']);
   $adresse=htmlspecialchars($_POST['adresse']);
-  $fixe=intval($_POST['fixe']);
-  $portable=intval($_POST['portable']);
+  $fixe=htmlspecialchars($_POST['telephone_fixe']);
+  $portable=htmlspecialchars($_POST['telephone_portable']);
 
   //recuperation pour la table comptences supp
   $langue1=htmlspecialchars($_POST['langue1']);
@@ -18,28 +18,28 @@ if (isset ($_POST['valider'])){
   $langue3=htmlspecialchars($_POST['langue3']);
 
   //recuperation pour la table formation
-  $annee_diplome1=intval($_POST['annee_diplome1']);
+  $annee_diplome1=htmlspecialchars($_POST['annee_diplome1']);
   $intitule_formation1=htmlspecialchars($_POST['intitule_formation1']);
   $universite1=htmlspecialchars($_POST['universite1']);
   $mention1=htmlspecialchars($_POST['mention1']);
   $description_form1=htmlspecialchars($_POST['description_form1']);
-  $annee_diplome2=intval($_POST['annee_diplome2']);
+  $annee_diplome2=htmlspecialchars($_POST['annee_diplome2']);
   $intitule_formation2=htmlspecialchars($_POST['intitule_formation2']);
   $universite2=htmlspecialchars($_POST['universite2']);
   $mention2=htmlspecialchars($_POST['mention2']);
   $description_form2=htmlspecialchars($_POST['description_form2']);
-  $annee_diplome3=intval($_POST['annee_diplome3']);
+  $annee_diplome3=htmlspecialchars($_POST['annee_diplome3']);
   $intitule_formation3=htmlspecialchars($_POST['intitule_formation3']);
   $universite3=htmlspecialchars($_POST['universite3']);
   $mention3=htmlspecialchars($_POST['mention3']);
   $description_form3=htmlspecialchars($_POST['description_form3']);
 
   //recuperation pour la table experiences
-  $annee_xp1=intval($_POST['annee_xp1']);
+  $annee_xp1=htmlspecialchars($_POST['annee_xp1']);
   $description_xp1=htmlspecialchars($_POST['description_xp1']);
-  $annee_xp2=intval($_POST['annee_xp2']);
+  $annee_xp2=htmlspecialchars($_POST['annee_xp2']);
   $description_xp2=htmlspecialchars($_POST['description_xp2']);
-  $annee_xp3=intval($_POST['annee_xp3']);
+  $annee_xp3=htmlspecialchars($_POST['annee_xp3']);
   $description_xp3=htmlspecialchars($_POST['description_xp3']);
 
   //recuperation pour la table associative
@@ -59,9 +59,8 @@ if (isset ($_POST['valider'])){
         $portablelength = strlen($portable);
         if ($portable ==10) {
 
-
-          $insertmbr = $bdd->prepare("INSERT INTO contact(ID_etu, age, adresse, telephone_fixe, telephone_portable) VALUES (?,?,?,?)");
-          $insertmbr->execute(array($ID_etu,$age,$adresse,$fixe,$portable));
+          $insertmbr = $bdd->prepare("INSERT INTO etudiant(age, adresse, telephone_fixe, telephone_portable) VALUES (?,?,?,?)");
+          $insertmbr->execute(array($age,$adresse,$fixe,$portable));
 
         } else {
           $erreur = "Le numéro de portable doit comporter 10 caractères";
@@ -110,7 +109,7 @@ if (isset ($_POST['valider'])){
     $insertmbr = $bdd->prepare("INSERT INTO experiences(ID_etu, annee_xp1,description1,annee_xp2,description2,annee_xp3, description3 ) VALUES (?,?,?,?,?,?,?)");
     $insertmbr->execute(array($ID_etu, $annee_xp1,$description_xp1,$annee_xp2,$description_xp2,$annee_xp3,$description_xp3));
 
-    $erreur = 'Enregistrement réussi ! Retournez vers votre. <a class=\"centrer\" href="profil.php?ID_etu= echo .$_SESSION[\'ID_etu\'];">profil</a>';
+    $erreur = 'Enregistrement réussi !';
 
   } else {
     $erreur = "Veuillez renseigner tous les champs d'experience 1";

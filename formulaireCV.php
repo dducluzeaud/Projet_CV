@@ -42,11 +42,11 @@ if(isset($_SESSION['ID_etu']))
         </div>
         <div class="form-group">
           <label for="text">Numéro de fixe : </label>
-          <input id="fixe" name="fixe" type="text" class="form-control" value="<?php if (isset($fixe)) {echo $fixe;} ?>"></textarea>
+          <input id="telephone_fixe" name="telephone_fixe" type="text" class="form-control" value="<?php if (isset($fixe)) {echo $fixe;} ?>"></textarea>
         </div>
         <div class="form-group">
           <label for="text">Numéro de portable : </label>
-          <input id="portable" name="portable" type="text" class="form-control" value="<?php if (isset($portable)) {echo $portable;} ?>"></textarea>
+          <input id="telephone_portable" name="telephone_portable" type="text" class="form-control" value="<?php if (isset($portable)) {echo $portable;} ?>"></textarea>
         </div>
 
         <legend>Compétences :</legend>
@@ -124,7 +124,7 @@ if(isset($_SESSION['ID_etu']))
         <legend>Formations n°3:</legend>
         <div class="form-group">
           <label for="text">Année d'optention du diplôme:  </label>
-          <input id="annee_diplome3" name="annee_diplome3" type="number" min="1900" max=" <?php echo date('Y')?> " class="form-control" value="<?php if (isset($annee_diplome3)) {echo $annee_diplome3;} ?>">
+          <input id="annee_diplome3" name="annee_diplome3" type="text" class="form-control" value="<?php if (isset($annee_diplome3)) {echo $annee_diplome3;} ?>">
         </div>
         <div class="form-group">
           <label for="text">Intitulé de la formation : </label>
