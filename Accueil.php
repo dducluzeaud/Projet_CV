@@ -46,7 +46,6 @@ include_once('cookieconnect.php');
   <?php
 
   if (isset($_POST['requete']) && $_POST['requete'] != null) {
-    include('connexion_BDD.php');
 
     $requete = htmlspecialchars($_POST['requete']);
     $req = $bdd->prepare("SELECT nom, prenom, mail
@@ -56,7 +55,6 @@ include_once('cookieconnect.php');
         WHERE intitule_formation1 LIKE :requete
         or intitule_formation2 Like :requete
         or intitule_formation3 LIKE :requete
-        or annee_formation1 LIKE :requete
         ORDER BY id DESC)");
 
         $req->execute(array('requete' => $requete . '%'));
@@ -130,8 +128,8 @@ include_once('cookieconnect.php');
                 <div class="container centrer">
                   <div class="col-lg-12">
                 <h3>Pas de résultats</h3>
-                <p>Nous n'avons trouvé aucun résultat pour votre requête "<?php echo $_POST['requete']; ?>". Réessayez</a> avec autre chose.
-                    <br> Si vous cherchez l'année d'une promotion d'étudiants entrez une date sinon pour avoir accès à tous nos étudiants tapez CCI.</p>
+                <p>Nous n'avons trouvé aucun résultat pour votre requête "<?php echo $_POST['requete']; ?>".</a>
+                    <br> Pour avoir accès à tous nos étudiants tapez CCI.</p>
               </div>
             </div>
                 <?php

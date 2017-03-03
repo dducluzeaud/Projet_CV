@@ -29,9 +29,12 @@ if (isset($_GET['ID_etu']) and $_GET['ID_etu'] > 0) {
 
     <?php
     if (isset($_SESSION['ID_etu']) and $userinfo['ID_etu'] == $_SESSION['ID_etu']) {
+      $requser = $bdd->prepare("SELECT * FROM formations WHERE ID_etu = ?");
+      $requser->execute(array($_SESSION['ID_etu']));
+      $donnees = $requser->fetch();
       ?>
       <br />
-      <br><br><br><br><br><br><br>
+      <br><br><br><br>
       <div class="container">
 
 
@@ -39,11 +42,15 @@ if (isset($_GET['ID_etu']) and $_GET['ID_etu'] > 0) {
 
           <a href="accueil.php" class="btn btn-primary">Accueil <span class="glyphicon glyphicon-home"></span></a>
           <a href="editionprofil.php" class="btn btn-info">Editer mon profil <span class="glyphicon glyphicon-user"></span></a>
-          <?php if(empty($donnees['age'] )) {
-            echo '<a href="formulaireCV.php" class="btn btn-primary">Créer son CV <span class="glyphicon glyphicon-file"></span></a>';
-          } else {
+          <?php if (isset($donnees['intitule_formation1']) and !empty($donnees['intitule_formation1'])){
             echo '<a href="editionCV.php" class="btn btn-primary">Modifier votre CV <span class="glyphicon glyphicon-file"></span></a>';
+
+          } else {
+            echo '<a href="formulaireCV.php" class="btn btn-primary">Créer son CV <span class="glyphicon glyphicon-file"></span></a>';
+
           } ?>
+
+
           <a href="CV.php" class="btn btn-success">Visualiser CV <span class="glyphicon glyphicon-eye-open"></span></a>
           <a href="deconnexion.php" class="btn btn-danger">Déconnexion <span class="glyphicon glyphicon-off"></span></a>
 

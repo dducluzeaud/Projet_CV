@@ -16,13 +16,16 @@
     <div class="btn-group">
       <br>
       <?php if (isset($_SESSION['ID_etu'])) {
+        $requser = $bdd->prepare("SELECT * FROM formations WHERE ID_etu = ?");
+        $requser->execute(array($_SESSION['ID_etu']));
+        $donnees = $requser->fetch();
         ?>
 
         <div class="btn-group col-md-2">
           <button  type="button" class="btn-rond btn-primary dropdown-toggle" data-toggle="dropdown"> Mon compte<span class="caret"></span></button>
           <ul class="dropdown-menu">
             <li><a href="profil.php?ID_etu=<?php echo $_SESSION['ID_etu'];?>"><span class="glyphicon glyphicon-user"></span> Voir votre profil</a></li>
-            <?php if(!empty($_POST['intitule_formation1'] )) {
+            <?php if (isset($donnees['intitule_formation1']) and !empty($donnees['intitule_formation1'])){
               echo '<li><a href="#"><span class="glyphicon glyphicon-picture"></span> Modifier votre CV</a></li>';
             } else {
              echo'<li><a href="formulaireCV.php?ID_etu=<?php echo $_SESSION[\'ID_etu\'];?>"><span class="glyphicon glyphicon-file"></span> Créer son CV </a></li>';
