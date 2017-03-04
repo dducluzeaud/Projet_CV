@@ -6,11 +6,11 @@ if (isset ($_POST['valider'])){
   //recperation pour la table etudiant
   $ID_etu=intval($_SESSION['ID_etu']);
 
-  // recuperation pour la table informa
-  $age=($_POST['age']);
+  // recuperation pour la table informations
+  $age=htmlspecialchars($_POST['age']);
   $adresse=htmlspecialchars($_POST['adresse']);
-  $fixe=htmlspecialchars($_POST['telephone_fixe']);
-  $portable=htmlspecialchars($_POST['telephone_portable']);
+  $fixe=htmlspecialchars($_POST['fixe']);
+  $portable=htmlspecialchars($_POST['portable']);
 
   //recuperation pour la table comptences supp
   $langue1=htmlspecialchars($_POST['langue1']);
@@ -50,33 +50,10 @@ if (isset ($_POST['valider'])){
 
   //Appel de la fonction de connexion, ne pas oublier le "include" qui va aller chercher la fonction dans un autre fichier.
 
-  //insertion dans la table etudiants
+  //insertion dans la table contact
 
-  if (!empty($_POST['age']) and !empty($_POST['adresse'])) {
-    if ($age < 120 && $age > 0) {
-      $fixelength = strlen($fixe);
-      if ($fixe == 10){
-        $portablelength = strlen($portable);
-        if ($portable ==10) {
-
-          $insertmbr = $bdd->prepare("INSERT INTO etudiant(age, adresse, telephone_fixe, telephone_portable) VALUES (?,?,?,?)");
-          $insertmbr->execute(array($age,$adresse,$fixe,$portable));
-
-        } else {
-          $erreur = "Le numéro de portable doit comporter 10 caractères";
-        }
-      } else {
-        $erreur = "Le numéro de fixe doit comporter 10 caractères";
-      }
-    } else {
-      $erreur = "Veuillez vérifier votre âge.";
-    }
-  } else {
-    $erreur = "Veuillez remplir les champs indispensable (*)";
-  }
-
-
-
+    $insertmbr = $bdd->prepare("INSERT INTO contact(age, adresse, fixe, portable, ID_etu) VALUES (?,?,?,?,?)");
+    $insertmbr->execute(array($age,$adresse,$fixe,$portable,$ID_etu));
 
   // insertion dans la table competences
 
@@ -114,11 +91,6 @@ if (isset ($_POST['valider'])){
   } else {
     $erreur = "Veuillez renseigner tous les champs d'experience 1";
   }
-
-
-
-
-
 
 
   // insertion dans la table associative

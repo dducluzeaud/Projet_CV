@@ -38,21 +38,21 @@ if (isset($_GET['ID_etu']) and $_GET['ID_etu'] > 0) {
       <div class="container">
 
 
-        <div class=" btn-group-vertical col-lg-6 col-lg-offset-3 centrer">
+        <div class=" btn-group-vertical col-lg-4 col-lg-offset-4 centrer">
 
-          <a href="accueil.php" class="btn btn-primary">Accueil <span class="glyphicon glyphicon-home"></span></a>
-          <a href="editionprofil.php" class="btn btn-info">Editer mon profil <span class="glyphicon glyphicon-user"></span></a>
+          <a href="accueil.php" class="btn btn-primary btn-lg">Accueil <span class="glyphicon glyphicon-home"></span></a>
+          <a href="editionprofil.php" class="btn btn-info btn-lg">Editer mon profil <span class="glyphicon glyphicon-user"></span></a>
           <?php if (isset($donnees['intitule_formation1']) and !empty($donnees['intitule_formation1'])){
-            echo '<a href="editionCV.php" class="btn btn-primary">Modifier votre CV <span class="glyphicon glyphicon-file"></span></a>';
+            echo '<a href="edition_CV.php" class="btn btn-primary btn-lg">Modifier votre CV <span class="glyphicon glyphicon-file"></span></a>';
 
           } else {
-            echo '<a href="formulaireCV.php" class="btn btn-primary">Créer son CV <span class="glyphicon glyphicon-file"></span></a>';
+            echo '<a href="formulaireCV.php" class="btn btn-primary btn-lg">Créer son CV <span class="glyphicon glyphicon-file"></span></a>';
 
           } ?>
 
 
-          <a href="CV.php" class="btn btn-success">Visualiser CV <span class="glyphicon glyphicon-eye-open"></span></a>
-          <a href="deconnexion.php" class="btn btn-danger">Déconnexion <span class="glyphicon glyphicon-off"></span></a>
+          <a href="CV.php" class="btn btn-success btn-lg">Visualiser CV <span class="glyphicon glyphicon-eye-open"></span></a>
+          <a href="deconnexion.php" class="btn btn-danger btn-lg">Déconnexion <span class="glyphicon glyphicon-off"></span></a>
 
         </div>
       </div>

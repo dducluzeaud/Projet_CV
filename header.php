@@ -26,7 +26,7 @@
           <ul class="dropdown-menu">
             <li><a href="profil.php?ID_etu=<?php echo $_SESSION['ID_etu'];?>"><span class="glyphicon glyphicon-user"></span> Voir votre profil</a></li>
             <?php if (isset($donnees['intitule_formation1']) and !empty($donnees['intitule_formation1'])){
-              echo '<li><a href="#"><span class="glyphicon glyphicon-picture"></span> Modifier votre CV</a></li>';
+              echo '<li><a href="Edition_CV_form.php"><span class="glyphicon glyphicon-picture"></span> Modifier votre CV</a></li>';
             } else {
              echo'<li><a href="formulaireCV.php?ID_etu=<?php echo $_SESSION[\'ID_etu\'];?>"><span class="glyphicon glyphicon-file"></span> Créer son CV </a></li>';
            }?>

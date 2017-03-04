@@ -19,9 +19,13 @@ $donnees = $reponse->fetch();
 $Smarty->assign('nom',$donnees['nom']);
 $Smarty->assign('prenom',$donnees['prenom']);
 $Smarty->assign('email',$donnees['mail']);
+
+$reponse = $bdd->prepare('SELECT * FROM contact WHERE ID_etu= ?');
+$reponse->execute(array($_SESSION['ID_etu']));
+$donnees = $reponse->fetch();
 $Smarty->assign('adresse',$donnees['adresse']);
-$Smarty->assign('telephone_fixe',$donnees['telephone_fixe']);
-$Smarty->assign('telephone_portable',$donnees['telephone_portable']);
+$Smarty->assign('telephone_fixe',$donnees['fixe']);
+$Smarty->assign('telephone_portable',$donnees['portable']);
 
 
 

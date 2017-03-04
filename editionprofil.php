@@ -63,7 +63,8 @@ if(isset($_SESSION['ID_etu']))
   <body>
 
     <?php include('header.php') ?>
-  
+
+  <br>
 
     <form method="POST" action="" enctype="multipart/form-data">
 

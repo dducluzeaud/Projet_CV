@@ -33,20 +33,20 @@ if(isset($_SESSION['ID_etu']))
       <form method="POST">
         <legend>Informations :</legend>
         <div class="form-group">
-          <label for="age">Age : </label>
-          <input id="age" type="number" value="25" min="0" max="100" name="age" class="form-control">
+          <label for="text">Age : </label>
+          <input id="age" type="text" name="age" class="form-control" vaue="<?php if (isset($age)) {echo $age;} ?>">
         </div>
         <div class="form-group">
           <label for="text">Adresse : </label>
-          <input id="adresse" type="text" name="adresse" class="form-control" value="<?php if (isset($adresse)) {echo $adresse;} ?>" /></textarea>
+          <input id="adresse" type="text" name="adresse" class="form-control" value="<?php if (isset($adresse)) {echo $adresse;} ?>" />
         </div>
         <div class="form-group">
           <label for="text">Numéro de fixe : </label>
-          <input id="telephone_fixe" name="telephone_fixe" type="text" class="form-control" value="<?php if (isset($fixe)) {echo $fixe;} ?>"></textarea>
+          <input id="fixe" name="fixe" type="text" class="form-control" value="<?php if (isset($fixe)) {echo $fixe;} ?>"></textarea>
         </div>
         <div class="form-group">
           <label for="text">Numéro de portable : </label>
-          <input id="telephone_portable" name="telephone_portable" type="text" class="form-control" value="<?php if (isset($portable)) {echo $portable;} ?>"></textarea>
+          <input id="portable" name="portable" type="text" class="form-control" value="<?php if (isset($portable)) {echo $portable;} ?>">
         </div>
 
         <legend>Compétences :</legend>
@@ -56,15 +56,15 @@ if(isset($_SESSION['ID_etu']))
 
         <div class="form-group">
           <label for="text">Langue vivante n°1 : </label>
-          <input id="langue1" name="langue1" type="text" class="form-control" value="<?php if (isset($langue1)) {echo $langue1;} ?>"></textarea>
+          <input id="langue1" name="langue1" type="text" class="form-control" value="<?php if (isset($langue1)) {echo $langue1;} ?>">
         </div>
         <div class="form-group">
           <label for="text">Langue vivante n°2 : </label>
-          <input id="langue2"name="langue2" type="text" class="form-control"value="<?php if (isset($langue2)) {echo $langue2;} ?>"></textarea>
+          <input id="langue2"name="langue2" type="text" class="form-control"value="<?php if (isset($langue2)) {echo $langue2;} ?>">
         </div>
         <div class="form-group">
           <label for="text">Langue vivante n°3 : </label>
-          <input id="langue3"name="langue3" type="text" class="form-control"value="<?php if (isset($langue3)) {echo $langue3;} ?>"></textarea>
+          <input id="langue3"name="langue3" type="text" class="form-control"value="<?php if (isset($langue3)) {echo $langue3;} ?>">
         </div>
 
         <legend>Formations n°1:</legend>
