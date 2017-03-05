@@ -30,6 +30,7 @@
             } else {
              echo'<li><a href="formulaireCV.php?ID_etu=<?php echo $_SESSION[\'ID_etu\'];?>"><span class="glyphicon glyphicon-file"></span> Créer son CV </a></li>';
            }?>
+           <li><a href="CV.php"><span class="glyphicon glyphicon-eye-open"></span> Visualiser CV </a></li>
             <li><a href="deconnexion.php"><span class="glyphicon glyphicon-off"></span> Déconnexion</a></li>
           </ul>
         </div>

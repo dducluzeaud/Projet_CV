@@ -51,10 +51,27 @@ if (isset ($_POST['valider'])){
   //Appel de la fonction de connexion, ne pas oublier le "include" qui va aller chercher la fonction dans un autre fichier.
 
   //insertion dans la table contact
-
-    $insertmbr = $bdd->prepare("INSERT INTO contact(age, adresse, fixe, portable, ID_etu) VALUES (?,?,?,?,?)");
-    $insertmbr->execute(array($age,$adresse,$fixe,$portable,$ID_etu));
-
+  if (!empty($_POST['age']) and !empty($_POST['adresse'])){
+    if ($age < 120) {
+    $fixe = strlen($fixe);
+    if ($fixe == 10) {
+      $portable = strlen($portable);
+      if ($portable == 10) {
+        $insertmbr = $bdd->prepare("INSERT INTO contact(age, adresse, fixe, portable, ID_etu) VALUES (?,?,?,?,?)");
+        $insertmbr->execute(array($age,$adresse,$fixe,$portable,$ID_etu));
+            header('Location: profil.php?ID_etu='.$_SESSION['ID_etu']);
+      } else {
+        $erreur = "Votre numéro de portable ne doit pas dépasser 10 chiffres !";
+      }
+    } else {
+      $erreur = "Votre numéro ne doit pas dépasser 10 chiffres !";
+    }
+  }else {
+    $erreur = "Votre age ne peut dépasser 120 ans !";
+  }
+}else {
+  $erreur = "Veuilez rentrer valeur dans le champ age et/ou adresse";
+  }
   // insertion dans la table competences
 
   if (!empty($_POST['langue1'])){
@@ -70,11 +87,9 @@ if (isset ($_POST['valider'])){
 
   if (!empty($_POST['description_form1']) and !empty($_POST['universite1'] )) {
 
-
     $insertmbr = $bdd->prepare("INSERT INTO formations(ID_etu, annee_diplome1,intitule_formation1,universite1,mention1,description_form1,annee_diplome2,intitule_formation2,universite2,mention2,description_form2,annee_diplome3,intitule_formation3,universite3,mention3,description_form3 ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
     $insertmbr->execute(array($ID_etu, $annee_diplome1,$intitule_formation1,$universite1,$mention1,$description_form1,$annee_diplome2,$intitule_formation2,$universite2,$mention2,$description_form2,$annee_diplome3,$intitule_formation3,$universite3,$mention3,$description_form3));
-
-
+        header('Location: profil.php?ID_etu='.$_SESSION['ID_etu']);
   } else {
     $erreur = 'Veuillez renseigner tous les champs de la formation 1.';
   }
@@ -85,9 +100,7 @@ if (isset ($_POST['valider'])){
 
     $insertmbr = $bdd->prepare("INSERT INTO experiences(ID_etu, annee_xp1,description1,annee_xp2,description2,annee_xp3, description3 ) VALUES (?,?,?,?,?,?,?)");
     $insertmbr->execute(array($ID_etu, $annee_xp1,$description_xp1,$annee_xp2,$description_xp2,$annee_xp3,$description_xp3));
-
-    $erreur = 'Enregistrement réussi !';
-
+        header('Location: profil.php?ID_etu='.$_SESSION['ID_etu']);
   } else {
     $erreur = "Veuillez renseigner tous les champs d'experience 1";
   }
@@ -100,6 +113,7 @@ if (isset ($_POST['valider'])){
   //insertion dans la table divers
   $insertmbr = $bdd->prepare("INSERT INTO divers(ID_etu, divers) VALUES (?,?)");
   $insertmbr->execute(array($ID_etu,$divers));
+
 
 }
 ?>

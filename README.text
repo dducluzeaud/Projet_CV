@@ -1,0 +1,7 @@
+A partir de la page accueil s'inscrire ou se connecter avec une personne inscrite déjà dans la base de donnée. Pour générer la base de
+donnée utiliser le fichier BDD_CV.sql. Il faut utiliser un des emails suivants: david.ducluzeaud@etu.univ-tours.fr,
+le mdp est le mail de la personne enregistrer. Pour générer un CV il faut préalablement rentrer les informations nécessaires dans la base de données
+à l'aide du formulaire, si les informations sont déja rentrés ont peu les modifiés.
+La recherche pour le CV se fait en fonction des noms d'intitulé de formation présent dans le formulaire. Ils nous a été difficile de savoir
+comment faire pour pouvoir génerer le télechargement ou la visualisation des CV générées via smarty (template) en fonction de la recherche. Par contre
+le template fonction sur la page profil lorsque l'utilisateur est connecté et clique sur visualer son CV.

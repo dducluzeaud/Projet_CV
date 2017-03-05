@@ -26,8 +26,8 @@
 
           <li class="info">{$nom} {$prenom}</li>
           <li class="info">{$adresse}</li>
-          <li class="info">Tel fixe: 0{$telephone_fixe}</li>
-          <li class="info">Tel portable: 0{$telephone_portable}</li>
+          <li class="info">Tel fixe: {$telephone_fixe}</li>
+          <li class="info">Tel portable: {$telephone_portable}</li>
           <li class="info"><a href="mailto:{$email}"> @: {$email}</a></li>
 
       </div>

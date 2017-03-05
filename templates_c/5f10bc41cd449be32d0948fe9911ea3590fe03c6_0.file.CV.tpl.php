@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-03-02 13:40:51
+/* Smarty version 3.1.30, created on 2017-03-04 22:42:20
   from "/Users/davidducluzeaud/Documents/EP12_Internet-Intranet/Projet_CV/CV.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58b812d3a59337_48666586',
+  'unifunc' => 'content_58bb34bc3e47e8_68916032',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5f10bc41cd449be32d0948fe9911ea3590fe03c6' => 
     array (
       0 => '/Users/davidducluzeaud/Documents/EP12_Internet-Intranet/Projet_CV/CV.tpl',
-      1 => 1488458203,
+      1 => 1488663732,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58b812d3a59337_48666586 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58bb34bc3e47e8_68916032 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/Users/davidducluzeaud/Documents/EP12_Internet-Intranet/Projet_CV/tpl/plugins/modifier.date_format.php';
 ?>
 <!DOCTYPE html>
@@ -62,9 +62,9 @@ if (!is_callable('smarty_modifier_date_format')) require_once '/Users/davidduclu
 </li>
           <li class="info"><?php echo $_smarty_tpl->tpl_vars['adresse']->value;?>
 </li>
-          <li class="info">Tel fixe: 0<?php echo $_smarty_tpl->tpl_vars['telephone_fixe']->value;?>
+          <li class="info">Tel fixe: <?php echo $_smarty_tpl->tpl_vars['telephone_fixe']->value;?>
 </li>
-          <li class="info">Tel portable: 0<?php echo $_smarty_tpl->tpl_vars['telephone_portable']->value;?>
+          <li class="info">Tel portable: <?php echo $_smarty_tpl->tpl_vars['telephone_portable']->value;?>
 </li>
           <li class="info"><a href="mailto:<?php echo $_smarty_tpl->tpl_vars['email']->value;?>
 "> @: <?php echo $_smarty_tpl->tpl_vars['email']->value;?>

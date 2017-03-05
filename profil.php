@@ -43,7 +43,7 @@ if (isset($_GET['ID_etu']) and $_GET['ID_etu'] > 0) {
           <a href="accueil.php" class="btn btn-primary btn-lg">Accueil <span class="glyphicon glyphicon-home"></span></a>
           <a href="editionprofil.php" class="btn btn-info btn-lg">Editer mon profil <span class="glyphicon glyphicon-user"></span></a>
           <?php if (isset($donnees['intitule_formation1']) and !empty($donnees['intitule_formation1'])){
-            echo '<a href="edition_CV.php" class="btn btn-primary btn-lg">Modifier votre CV <span class="glyphicon glyphicon-file"></span></a>';
+            echo '<a href="edition_CV_form.php" class="btn btn-primary btn-lg">Modifier votre CV <span class="glyphicon glyphicon-file"></span></a>';
 
           } else {
             echo '<a href="formulaireCV.php" class="btn btn-primary btn-lg">Créer son CV <span class="glyphicon glyphicon-file"></span></a>';
